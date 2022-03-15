@@ -3,8 +3,6 @@ import React, { useContext } from "react";
 import { View, Text, Image } from "react-native";
 import { styles } from "./styles";
 
-import homeIllustration from "../../assets/images/home-illustration.png";
-import arrowIllustrationHome from "../../assets/images/arrow-illustration-home.png";
 import Button from "../../components/Button";
 
 import { Context } from "../../Context";
@@ -21,7 +19,7 @@ export default function Home() {
         </View>
         <Image
           style={styles.image}
-          source={homeIllustration}
+          source={require("../../assets/images/home-illustration.png")}
           resizeMode="contain"
         />
         <Text style={styles.content}>
@@ -37,7 +35,10 @@ export default function Home() {
           title="Começar"
           onPress={() => handleSetCurrentPage("Data")}
         >
-          <Image source={arrowIllustrationHome} resizeMode="contain" />
+          <Image
+            source={require("../../assets/images/arrow-illustration-home.png")}
+            resizeMode="contain"
+          />
         </Button>
       </View>
     </View>

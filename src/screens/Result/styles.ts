@@ -9,8 +9,8 @@ export const styles = StyleSheet.create({
     backgroundColor: theme.colors.blue,
   },
   top: {
-    paddingLeft: 60,
-    paddingRight: 60,
+    paddingLeft: 70,
+    paddingRight: 70,
     flex: 1,
     justifyContent: "center",
     alignItems: "center",

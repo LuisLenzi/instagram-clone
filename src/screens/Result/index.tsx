@@ -2,9 +2,6 @@ import React, { useContext, useEffect, useState } from "react";
 
 import { View, Text, Image } from "react-native";
 
-import resultIllustration from "../../assets/images/result-illustration.png";
-import arrowIllustrationHome from "../../assets/images/arrow-illustration-data.png";
-
 import Button from "../../components/Button";
 
 import { Context } from "../../Context";
@@ -31,7 +28,7 @@ export default function Result() {
       <View style={styles.top}>
         <Image
           style={styles.image}
-          source={resultIllustration}
+          source={require("../../assets/images/result-illustration.png")}
           resizeMode="contain"
         />
 
@@ -51,7 +48,7 @@ export default function Result() {
           title="Voltar"
           onPress={() => handleSetCurrentPage("Home")}
         >
-          <Image source={arrowIllustrationHome} resizeMode="contain" />
+          <Image source={require("../../assets/images/arrow-illustration-data.png")} resizeMode="contain" />
         </Button>
       </View>
     </View>

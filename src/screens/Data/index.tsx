@@ -1,16 +1,11 @@
 import React, { useContext } from "react";
 
-import { View, Text, Image, TextInput } from "react-native";
+import { View, Text, Image } from "react-native";
 import { styles } from "./styles";
 
 import { useForm, Controller } from "react-hook-form";
 
 import { MaskedTextInput } from "react-native-mask-text";
-
-import dataIllustration from "../../assets/images/data-illustration.png";
-import arrowIllustrationData from "../../assets/images/arrow-illustration-data.png";
-import femaleIllustration from "../../assets/images/female-illustration.png";
-import maleIllustration from "../../assets/images/male-illustration.png";
 
 import Button from "../../components/Button";
 
@@ -54,14 +49,20 @@ export default function Home() {
               title="Feminino"
               onPress={() => handleSetGenderSelection("Feminino")}
             >
-              <Image source={femaleIllustration} resizeMode="contain" />
+              <Image
+                source={require("../../assets/images/female-illustration.png")}
+                resizeMode="contain"
+              />
             </Gender>
             <View style={styles.separator} />
             <Gender
               title="Masculino"
               onPress={() => handleSetGenderSelection("Masculino")}
             >
-              <Image source={maleIllustration} resizeMode="contain" />
+              <Image
+                source={require("../../assets/images/male-illustration.png")}
+                resizeMode="contain"
+              />
             </Gender>
           </View>
           <View>
@@ -138,7 +139,10 @@ export default function Home() {
           title="Calcular"
           onPress={handleSubmit(onSubmit)}
         >
-          <Image source={dataIllustration} resizeMode="contain" />
+          <Image
+            source={require("../../assets/images/data-illustration.png")}
+            resizeMode="contain"
+          />
         </Button>
       </View>
       <View style={styles.bottom}>
@@ -147,7 +151,10 @@ export default function Home() {
           title="Voltar"
           onPress={() => handleSetCurrentPage("Home")}
         >
-          <Image source={arrowIllustrationData} resizeMode="contain" />
+          <Image
+            source={require("../../assets/images/arrow-illustration-data.png")}
+            resizeMode="contain"
+          />
         </Button>
       </View>
     </View>
