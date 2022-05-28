@@ -1,46 +1,43 @@
-import React, { useContext } from "react";
+import React, { useEffect, useState } from "react";
 
-import { View, Text, Image } from "react-native";
+import { View } from "react-native";
+
 import { styles } from "./styles";
 
-import Button from "../../components/Button";
+import Menu from "../../components/Menu";
+import Story from "../../components/Story";
+import Header from "../../components/Header";
 
-import { Context } from "../../Context";
+import { PostData, StoryData } from "../../@types/context";
+
+import { handlePostData, handleStoryData } from "../../api/data";
+import Posts from "../../components/Posts";
 
 export default function Home() {
-  const { handleSetCurrentPage } = useContext(Context);
+  const [storyData, setStoryData] = useState<StoryData[]>([]);
+  const [postData, setPostData] = useState<PostData[]>([]);
+
+  async function getStoryData() {
+    const data = await handleStoryData();
+    return setStoryData(data);
+  }
+
+  async function getPostData() {
+    const data = await handlePostData();
+    return setPostData(data);
+  }
+
+  useEffect(() => {
+    getPostData();
+    getStoryData();
+  }, []);
 
   return (
     <View style={styles.container}>
-      <View style={styles.top}>
-        <View style={styles.header}>
-          <Text style={styles.line01}>Calcule o seu</Text>
-          <Text style={styles.line02}>IMC</Text>
-        </View>
-        <Image
-          style={styles.image}
-          source={require("../../assets/images/home-illustration.png")}
-          resizeMode="contain"
-        />
-        <Text style={styles.content}>
-          Estar dentro do peso certo é importante porque estar acima ou abaixo
-          desse peso pode influenciar bastante a saúde, aumentando o risco de
-          doenças como desnutrição quando se está abaixo do peso, e AVC ou
-          infarto, quando se está acima do peso.
-        </Text>
-      </View>
-      <View style={styles.bottom}>
-        <Button
-          type="secondary"
-          title="Começar"
-          onPress={() => handleSetCurrentPage("Data")}
-        >
-          <Image
-            source={require("../../assets/images/arrow-illustration-home.png")}
-            resizeMode="contain"
-          />
-        </Button>
-      </View>
+      <Header />
+      <Story stories={storyData} />
+      <Posts posts={postData} />
+      <Menu />
     </View>
   );
 }

@@ -1,26 +1,21 @@
-import React from "react";
+import { ImageSourcePropType } from "react-native";
 
-export interface ButtonInterface {
-  type: "primary" | "secondary" | "tertiary";
-  onPress: () => void;
-  title: string;
-  children: React.ReactNode;
-}
-
-export interface GenderInterface {
-  onPress: () => void;
-  title: string;
-  children: React.ReactNode;
-}
-
-export type FormData = {
-  weight: string;
-  height: string;
-  age: string;
+export type StoryData = {
+  id: number;
+  image: ImageSourcePropType;
+  name: string;
 };
 
-export interface InputInterface {
-  children: React.ReactNode;
-  unity: string;
-  title: string;
-}
+export type ProfileData = {
+  id: number;
+  image: ImageSourcePropType;
+  name: string;
+};
+
+export type PostData = {
+  id: number;
+  location: string;
+  image: ImageSourcePropType;
+  description: string;
+  profile: ProfileData;
+};

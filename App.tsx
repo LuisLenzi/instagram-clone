@@ -14,32 +14,8 @@ import {
 } from "@expo-google-fonts/poppins";
 
 import Home from "./src/screens/Home";
-import Data from "./src/screens/Data";
-import Result from "./src/screens/Result";
-
-import { Context } from "./src/Context";
-import { useState } from "react";
-import { FormData } from "./src/@types/context";
 
 export default function App() {
-  const [formData, setFormData] = useState<FormData | undefined>();
-  const [currentPage, setCurrentPage] = useState("Home");
-  const [genderSelection, setGenderSelection] = useState("");
-
-  function handleSetGenderSelection(gender: string) {
-    gender === "male"
-      ? setGenderSelection("female")
-      : setGenderSelection(gender);
-  }
-
-  function handleSetCurrentPage(page: string) {
-    setCurrentPage(page);
-  }
-
-  function handleSetFormData(data: FormData) {
-    setFormData(data);
-  }
-
   let [fontsLoaded] = useFonts({
     Poppins_300Light,
     Poppins_400Regular,
@@ -53,23 +29,10 @@ export default function App() {
   }
 
   return (
-    <Context.Provider
-      value={{
-        formData,
-        currentPage,
-        genderSelection,
-        handleSetFormData,
-        handleSetCurrentPage,
-        handleSetGenderSelection,
-      }}
-    >
-      <View style={styles.container}>
-        <StatusBar style="auto" />
-        {currentPage === "Home" && <Home />}
-        {currentPage === "Data" && <Data />}
-        {currentPage === "Result" && <Result />}
-      </View>
-    </Context.Provider>
+    <View style={styles.container}>
+      <StatusBar style="auto" />
+      <Home />
+    </View>
   );
 }
 

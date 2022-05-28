@@ -2,8 +2,9 @@ export const theme = {
   colors: {
     black: "#000000",
     white: "#FFFFFF",
-    blue: "#00057D",
-    red: "#BF0436",
+    gray: "#333333",
+    grayLight: "#666666",
+    storyGradient: "rgba(158, 38, 146, 1)",
   },
 
   fonts: {

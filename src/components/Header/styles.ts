@@ -5,10 +5,19 @@ import { theme } from "../../styles/theme";
 export const styles = StyleSheet.create({
   container: {
     width: "100%",
-    height: "100%",
-    paddingTop: 30,
     alignItems: "center",
-    justifyContent: "flex-start",
+    padding: 20,
+    justifyContent: "space-between",
     backgroundColor: theme.colors.white,
+    flexDirection: "row",
+  },
+  logo: {},
+  buttons: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  icon: {
+    marginRight: 15,
   },
 });
