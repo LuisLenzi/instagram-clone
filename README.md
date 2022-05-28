@@ -45,7 +45,7 @@ Run the server
 
 Access the url bellow to see the example
 
-[Dashboard](https://nex-generator.vercel.app)
+[Instagram Clone](https://expo.dev/@luislenzi/instagram-clone?serviceType=classic&distribution=expo-go)
 
 ## License
 
